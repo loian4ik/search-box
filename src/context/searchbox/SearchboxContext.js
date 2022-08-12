@@ -1,6 +1,6 @@
 import { createContext, useReducer} from "react";
 import searchboxReducer from './SearchboxReducer'
-import UserItem from '../../components/users/UserItem';
+
 
 const SearchboxContext = createContext()
 
@@ -14,26 +14,22 @@ export const SearchboxProvider = ({children}) => {
     }
      const [state, dispatch] = useReducer(searchboxReducer, initialState)
 
-    const searchUsers = async (text) => {
+       
+     
+     const searchUsers = async (text) => {
         setLoading()
-        
 
         const params = new URLSearchParams({
-            q:text,
-        })
+         q: text,   
+         })
+          
 
-        const response = await fetch(`https://jsonplaceholder.typicode.com/comments?$
-        {params}`,{
-           
-            headers:{
-                'Content-type': 'application/json; charset=UTF-8',
-            }
-
-        },
+     const response = await fetch(`${SEARCHBOX_URL}comments?${params}`,
+       
         )
         
        
-        const data = await response.json()
+    const data = await response.json()
     
         dispatch({
         type: 'GET_USERS',
@@ -41,12 +37,14 @@ export const SearchboxProvider = ({children}) => {
        })
        }
 
+       const clearUsers = () => dispatch({type: 'CLEAR_USERS'})
+
   const setLoading = () => dispatch ({type:
 'SET_LOADING'})
 
-  const clearUsers = () => dispatch({type: 'CLEAR_USERS'})
 
-    return <SearchboxContext.Provider value ={{
+    return (
+    <SearchboxContext.Provider value ={{
 
         users: state.users,
         loading: state.loading,
@@ -55,6 +53,7 @@ export const SearchboxProvider = ({children}) => {
     }}>
         {children}
     </SearchboxContext.Provider>
+    )
 
 }
 export default SearchboxContext

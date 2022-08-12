@@ -1,11 +1,11 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import SearchboxContext from '../../context/searchbox/SearchboxContext'
-import { useContext } from 'react';
 
 function UserSearch() {
  const [text, setText] = useState('')
 
  const {users, searchUsers, clearUsers} = useContext(SearchboxContext)
+
 
  const handleChange = (e) => setText(e.target.value)
 
@@ -21,6 +21,7 @@ function UserSearch() {
        searchUsers(text)
 
        setText('')
+       console.log(text);
     }
   }
 

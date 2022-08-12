@@ -4,21 +4,22 @@ import SearchboxContext from '../../context/searchbox/SearchboxContext'
 
 function UserResults() {
   const{users, loading } = useContext(SearchboxContext)
-
-//loading
-
+  console.log(users.filter(user=>user.email.includes("elis")));
   //useEffect(() => {
     //fetchUsers()
 
 //},[])
 
 if(!loading){
-    return (<div className='grid grid-cols-1 gap-8 xl:grid-cols-4 
-    lg:grid-cols-3 md:grid-cols-2'>
-    {users.map((user) => (
-        <UserItem key = {user.id} user={user}/>  
-    ) )}
-    </div>
+    return (
+   <div className='grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
+  
+   {users.map((user) => (
+    <UserItem key={user.id} user={user} />
+    
+  ))}
+</div>
+   
     ) 
    }
   else{
