@@ -9,7 +9,7 @@ function UserItem({user: {name, email, body} }) {
         <div>
             <h2 className='card-title text bg-secondary'>{email}</h2>
           <h2 className='card-title'>{name}</h2>
-          <h2 className='card-title'>{body}</h2>
+          <h2 className='card-title text bg-base-300'>{body}</h2>
           
         </div>
       </div>
