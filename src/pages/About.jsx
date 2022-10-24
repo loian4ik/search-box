@@ -4,9 +4,9 @@ function About() {
       <h1 className='text-6xl mb-4'>Search Box</h1>
       <p className='mb-4 text-2xl font-light'>
        Search Box - a React app to search profiles and see profile details. This
-        project is test of the
+        project is stored
       <strong>
-        <a href='https://corporate.jobrapido.com/'>  JOBRAPIDO</a>
+        <a href='https://github.com/loian4ik?tab=repositories'>  GITHUB</a>
       </strong>
       .
       </p>
